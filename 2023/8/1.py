@@ -3,7 +3,7 @@ import re
 
 moves = input()
 rules = {}
-for source, left, right in re.findall("(\w+) = \((\w+), (\w+)\)", "".join(sys.stdin.readlines())):
+for source, left, right in re.findall(r"(\w+) = \((\w+), (\w+)\)", "".join(sys.stdin.readlines())):
     rules.update({ source : (left, right)})
 
 state = "AAA"

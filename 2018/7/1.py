@@ -5,7 +5,7 @@ import string
 deps = { n : [] for n in string.ascii_uppercase }
 remaining = set()
 for line in sys.stdin.read().splitlines():
-    before, after = re.findall("Step (\w+) must be finished before step (\w+) can begin", line)[0]
+    before, after = re.findall(r"Step (\w+) must be finished before step (\w+) can begin", line)[0]
     deps[after].append(before)
     remaining.add(before)
     remaining.add(after)

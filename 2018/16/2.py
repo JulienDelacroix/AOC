@@ -44,9 +44,9 @@ sample_blocks = samples.split("\n\n")
 possible_mappings = [ set(all_oppcodes) for _ in range(16)]
 for b in sample_blocks:
     lines = b.splitlines()
-    registers_before = list(map(int, re.findall("\d+", lines[0])))
-    instruction = list(map(int, re.findall("\d+", lines[1])))
-    registers_after = list(map(int, re.findall("\d+", lines[2])))
+    registers_before = list(map(int, re.findall(r"\d+", lines[0])))
+    instruction = list(map(int, re.findall(r"\d+", lines[1])))
+    registers_after = list(map(int, re.findall(r"\d+", lines[2])))
     
     compatible_oppcodes = set(oppcode for oppcode in all_oppcodes if apply((oppcode, *instruction[1:]), registers_before) == registers_after)
     possible_mappings[instruction[0]] &= compatible_oppcodes
@@ -57,6 +57,6 @@ mapping = nx.bipartite.maximum_matching(G, top_nodes=range(16))
 
 registers = [0] * 4
 for line in program.splitlines():
-    instruction = list(map(int, re.findall("\d+", line)))
+    instruction = list(map(int, re.findall(r"\d+", line)))
     registers = apply((mapping[instruction[0]], *instruction[1:]) , registers)
 print(registers[0])

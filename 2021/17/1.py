@@ -1,5 +1,5 @@
 import re
-x1, x2, y1, y2 = map(int, re.findall("target area: x=(-?\d+)..(-?\d+), y=(-?\d+)..(-?\d+)", input())[0])
+x1, x2, y1, y2 = map(int, re.findall(r"target area: x=(-?\d+)..(-?\d+), y=(-?\d+)..(-?\d+)", input())[0])
 
 res = -1000
 for init_vx in range(x2+1):

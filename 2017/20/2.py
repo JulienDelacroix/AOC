@@ -6,7 +6,7 @@ TIME = 1000
 particles = []
 remaining = set()
 for n, line in enumerate(sys.stdin.read().splitlines()):
-    particles.append(list(map(lambda x : list(map(int, x.split(","))), re.findall("p=<(.+)>, v=<(.+)>, a=<(.+)>", line)[0])))
+    particles.append(list(map(lambda x : list(map(int, x.split(","))), re.findall(r"p=<(.+)>, v=<(.+)>, a=<(.+)>", line)[0])))
     remaining.add(n)
 
 for t in range(TIME):

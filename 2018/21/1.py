@@ -39,11 +39,11 @@ def apply(instruction, registers):
     return result
 
 
-rip_register = int(re.findall("(\d+)", input())[0])
+rip_register = int(re.findall(r"(\d+)", input())[0])
 
 instructions = []
 for line in sys.stdin.read().splitlines():
-    tokens = re.findall("(\w+) (\d+) (\d+) (\d+)", line)[0]
+    tokens = re.findall(r"(\w+) (\d+) (\d+) (\d+)", line)[0]
     oppcode = tokens[0]
     params = list(map(int, tokens[1:]))
     instructions.append([oppcode] + params)

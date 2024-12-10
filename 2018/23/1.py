@@ -6,7 +6,7 @@ def manhattan(bot1, bot2):
 
 bots = []
 for line in sys.stdin.read().splitlines():
-    x, y, z, r = map(int, re.findall("(-?\d+)", line))
+    x, y, z, r = map(int, re.findall(r"(-?\d+)", line))
     bots.append((x, y, z, r))
 
 strongest = max(bots, key=lambda v: v[3])

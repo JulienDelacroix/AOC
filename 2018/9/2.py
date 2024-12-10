@@ -1,7 +1,7 @@
 import re
 from collections import deque
 
-P, M = map(int, re.findall("(\d+)", input()))
+P, M = map(int, re.findall(r"(\d+)", input()))
 M *= 100
 
 scores = [0] * P

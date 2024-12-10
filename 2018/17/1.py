@@ -5,7 +5,7 @@ from queue import Queue
 clays = set()
 
 for line in sys.stdin.read().splitlines():
-    fixed_coord, fixed_val, range_begin, range_end = re.findall("(.)=(\d+), .=(\d+)\.\.(\d+)", line)[0]
+    fixed_coord, fixed_val, range_begin, range_end = re.findall(r"(.)=(\d+), .=(\d+)\.\.(\d+)", line)[0]
     for r in range(int(range_begin), int(range_end)+1):
         clays.add((int(fixed_val), r) if fixed_coord=='x' else (r, int(fixed_val)))
 

@@ -16,7 +16,7 @@ def splitInterval(interval, mapping, offset):
     return [(intersect[0] + offset, intersect[1] + offset)], unmapped
 
 blocks = list(sys.stdin.read().split("\n\n"))
-items = list(map(int, re.findall("(\d+)", blocks[0].splitlines()[0])))
+items = list(map(int, re.findall(r"(\d+)", blocks[0].splitlines()[0])))
 intervals = set((items[i], items[i] + items[i+1]) for i in range (0, len(items), 2))
 
 for block in blocks:

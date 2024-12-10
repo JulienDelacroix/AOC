@@ -10,20 +10,26 @@ xmax = max(p[0] for p in grid.keys())
 ymax = max(p[1] for p in grid.keys())
 goal = (xmax, ymax)
 
-openset = queue.PriorityQueue()
+
+# A* search
+def h(pos):
+    return abs(goal[0] - pos[0]) + abs(goal[1] - pos[1])
+
+q = queue.PriorityQueue()
 costs = {}
 
-start_state = ((0, 0), True, True)
-openset.put((0, start_state))
+start_pos = (0, 0)
+start_state = (start_pos, True, True)
+q.put((h(start_pos), 0, start_state))
 costs.update({start_state : 0})
 
-res = 1000000
-while not openset.empty():
-    currentCost, state = openset.get()
+
+while not q.empty():
+    _, currentCost, state = q.get()
     currentPos, horizontal, vertical = state
     if currentPos == goal: 
-        res = min(res, currentCost)
-        continue
+        print(currentCost)
+        break
 
     currentX, currentY = currentPos
     for sign in (-1, 1):
@@ -35,7 +41,7 @@ while not openset.empty():
                     nextState = (nextPos, False, True)
                     if nextState not in costs or nextCost < costs[nextState]:
                         costs.update({nextState : nextCost})
-                        openset.put((nextCost, nextState))
+                        q.put((nextCost + h(nextPos), nextCost, nextState))
 
         if vertical:
             for nextY in range(currentY + sign, currentY + 4*sign, sign):
@@ -45,6 +51,6 @@ while not openset.empty():
                     nextState = (nextPos, True, False)
                     if nextState not in costs or nextCost < costs[nextState]:
                         costs.update({nextState : nextCost})
-                        openset.put((nextCost, nextState))
+                        q.put((nextCost + h(nextPos), nextCost, nextState))
 
-print(res)
+

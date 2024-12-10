@@ -44,9 +44,9 @@ sample_blocks = samples.split("\n\n")
 res = 0
 for b in sample_blocks:
     lines = b.splitlines()
-    registers_before = list(map(int, re.findall("\d+", lines[0])))
-    instruction = list(map(int, re.findall("\d+", lines[1])))
-    registers_after = list(map(int, re.findall("\d+", lines[2])))
+    registers_before = list(map(int, re.findall(r"\d+", lines[0])))
+    instruction = list(map(int, re.findall(r"\d+", lines[1])))
+    registers_after = list(map(int, re.findall(r"\d+", lines[2])))
 
     if sum(apply((oppcode, *instruction[1:]), registers_before) == registers_after for oppcode in all_oppcodes) >= 3:
         res += 1

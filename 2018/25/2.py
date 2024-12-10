@@ -10,7 +10,7 @@ lines = blocks[0].splitlines()
 # lines
 for line in sys.stdin.read().splitlines():
     # reading tuple
-    winning_str, card_str = re.findall("Card +\d+: ([^|]+) \| (.+)", line)[0]
+    winning_str, card_str = re.findall(r"Card +\d+: ([^|]+) \| (.+)", line)[0]
     # reading int list
-    winning = set(map(int, re.findall("(\d+)", line)))
+    winning = set(map(int, re.findall(r"(\d+)", line)))
     

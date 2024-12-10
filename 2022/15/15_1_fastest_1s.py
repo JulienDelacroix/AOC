@@ -28,7 +28,7 @@ def mergeIntervals(intervals):
 intervals = []
 beacons = set()
 for line in sys.stdin.read().splitlines():
-    x_sensor, y_sensor, x_beacon, y_beacon = map(int, re.findall("-?\d+", line))
+    x_sensor, y_sensor, x_beacon, y_beacon = map(int, re.findall(r"-?\d+", line))
     sensor_range = dist((x_sensor, y_sensor), (x_beacon, y_beacon))
     intervals.extend(xrange(x_sensor, y_sensor, sensor_range))
     if y_beacon == ROW: beacons.add(y_beacon)

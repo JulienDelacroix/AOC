@@ -5,7 +5,7 @@ tracker = set()
 
 for line in sys.stdin.read().splitlines():
     action, coord = line.split()
-    x1, x2, y1, y2, z1, z2 = map(int, re.findall("x=(.*)\.\.(.*),y=(.*)\.\.(.*),z=(.*)\.\.(.*)", coord)[0])
+    x1, x2, y1, y2, z1, z2 = map(int, re.findall(r"x=(.*)\.\.(.*),y=(.*)\.\.(.*),z=(.*)\.\.(.*)", coord)[0])
     if any(v < -50 for v in (x1, y1, z1)): continue
     if any(v > 50 for v in (x2, y2, z2)): continue    
 

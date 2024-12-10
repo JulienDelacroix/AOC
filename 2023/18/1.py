@@ -5,7 +5,7 @@ x = y = 0
 vertices = [(x, y)]
 total_dist = 0
 for line in sys.stdin.read().splitlines():
-    c, dist, _ = re.findall("(\w) (\d+) \(#(\w+)\)", line)[0]
+    c, dist, _ = re.findall(r"(\w) (\d+) \(#(\w+)\)", line)[0]
     dir = "RDLU".index(c)
     x += (1, 0, -1, 0)[dir] * int(dist)
     y += (0, 1, 0, -1)[dir] * int(dist)

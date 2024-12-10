@@ -25,7 +25,7 @@ def key(state):
 
 floors = [ set() for _ in range(4) ]
 for f, line in enumerate(sys.stdin.read().splitlines()):
-    for item in re.findall("a ([\w-]+ \w+)", line):
+    for item in re.findall(r"a ([\w-]+ \w+)", line):
         element, type = item.split()
         floors[f].add((element[0:2], type[0]))
 floors[0].update([("el", 'g'), ("el", 'm'), ("di", 'g'), ("di", 'm')])

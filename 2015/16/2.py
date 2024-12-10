@@ -11,7 +11,7 @@ def match(k, value , required):
     return (value == required)
 
 for index, line in enumerate(sys.stdin.read().splitlines()):
-    attr = { attr.split(":")[0] : int(attr.split(":")[1]) for attr in re.findall(" (\w+: \d+)", line) }
+    attr = { attr.split(":")[0] : int(attr.split(":")[1]) for attr in re.findall(r" (\w+: \d+)", line) }
     if all(k not in attr or match(k, attr[k], v) for k, v in required.items()):
         print(index+1)
         break

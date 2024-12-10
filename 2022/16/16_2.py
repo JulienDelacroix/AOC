@@ -32,7 +32,7 @@ VALVES = ["AA"]
 PRESSURE = {}
 tunnels = {}
 for line in sys.stdin.read().splitlines():
-    valve, rate, next_list = re.findall("Valve (.*) has flow rate=(\d+); tunnels? leads? to valves? (.*)", line)[0]
+    valve, rate, next_list = re.findall(r"Valve (.*) has flow rate=(\d+); tunnels? leads? to valves? (.*)", line)[0]
     if int(rate) > 0:
         VALVES.append(valve)
     tunnels[valve] = next_list.split(", ")

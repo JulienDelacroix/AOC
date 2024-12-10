@@ -7,7 +7,7 @@ def distance(speed, duration, rest, time):
 
 reindeers = []
 for line in sys.stdin.read().splitlines():
-    speed, duration, rest = map(int, re.findall("\d+", line))
+    speed, duration, rest = map(int, re.findall(r"\d+", line))
     reindeers.append([distance(speed, duration, rest, time) for time in range(2504)])
 
 first = list(map(max, zip(*reindeers)))

@@ -5,7 +5,7 @@ x = y = 0
 vertices = [(x, y)]
 total_dist = 0
 for line in sys.stdin.read().splitlines():
-    _, _, color = re.findall("(\w) (\d+) \(#(\w+)\)", line)[0]
+    _, _, color = re.findall(r"(\w) (\d+) \(#(\w+)\)", line)[0]
     dist = int(color[:5], 16)
     dir = int(color[5])
 

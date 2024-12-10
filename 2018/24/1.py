@@ -24,7 +24,7 @@ for team, block in enumerate(list(sys.stdin.read().split("\n\n"))):
     lines = block.splitlines()
     team = lines[0].split(":")[0]
     for index, line in enumerate(lines[1:]):
-        units, hp, attr, attack, damage_type, init = re.findall("(\d+) units? each with (\d+) hit points?(.*)with an attack that does (\d+) (\w+) damage at initiative (\w+)", line)[0]
+        units, hp, attr, attack, damage_type, init = re.findall(r"(\d+) units? each with (\d+) hit points?(.*)with an attack that does (\d+) (\w+) damage at initiative (\w+)", line)[0]
         weak_to = immune_to = []
         for token in attr.strip(" )(").split("; "):
             if token.startswith("weak to"):

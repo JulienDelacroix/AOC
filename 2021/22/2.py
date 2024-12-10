@@ -41,7 +41,7 @@ def dfs(box, cubes):
 cubes = []
 for line in sys.stdin.read().splitlines():
     action, coord = line.split()
-    x1, x2, y1, y2, z1, z2 = map(int, re.findall("x=(.*)\.\.(.*),y=(.*)\.\.(.*),z=(.*)\.\.(.*)", coord)[0])
+    x1, x2, y1, y2, z1, z2 = map(int, re.findall(r"x=(.*)\.\.(.*),y=(.*)\.\.(.*),z=(.*)\.\.(.*)", coord)[0])
     cubes.append((x1, x2+1, y1, y2+1, z1, z2+1, action == "on"))
 
 print(

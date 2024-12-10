@@ -4,7 +4,7 @@ import re
 workflows = {}
 blocks = list(sys.stdin.read().split("\n\n"))
 for line in blocks[0].splitlines():
-    name, items = re.findall("(\w+){(.*)}", line)[0]
+    name, items = re.findall(r"(\w+){(.*)}", line)[0]
     rules = []
     for rule in items.split(","):
         if ':' in rule:
@@ -16,7 +16,7 @@ for line in blocks[0].splitlines():
 
 res = 0
 for line in blocks[1].splitlines():
-    x, m, a, s = map(int, re.findall("(-?\d+)", line))
+    x, m, a, s = map(int, re.findall(r"(-?\d+)", line))
     w = workflows["in"]
 
     while True:

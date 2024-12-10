@@ -6,7 +6,7 @@ import operator
 workflows = {}
 blocks = list(sys.stdin.read().split("\n\n"))
 for line in blocks[0].splitlines():
-    name, items = re.findall("(\w+){(.*)}", line)[0]
+    name, items = re.findall(r"(\w+){(.*)}", line)[0]
     rules = []
     for rule in items.split(","):
         if ':' in rule:

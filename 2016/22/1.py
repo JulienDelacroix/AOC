@@ -5,7 +5,7 @@ input()
 input()
 nodes = {}
 for line in sys.stdin.read().splitlines():
-    x, y, s, u = map(int, re.findall("/dev/grid/node-x(\d+)-y(\d+)\s+(\d+)T\s+(\d+)T.*", line)[0])
+    x, y, s, u = map(int, re.findall(r"/dev/grid/node-x(\d+)-y(\d+)\s+(\d+)T\s+(\d+)T.*", line)[0])
     nodes.update({(x, y) : (s, u)})
     
 res = 0

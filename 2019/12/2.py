@@ -4,7 +4,7 @@ import math
 
 moons = []
 for line in sys.stdin.read().splitlines():
-    moons.append(list(map(int, re.findall("(-?\d+)", line))) + [0]*3)
+    moons.append(list(map(int, re.findall(r"(-?\d+)", line))) + [0]*3)
 
 visited = set()
 cycles =  [None] * 3

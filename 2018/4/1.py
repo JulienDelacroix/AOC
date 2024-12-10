@@ -4,14 +4,14 @@ from collections import Counter
 
 logs = []
 for line in sys.stdin.read().splitlines():
-    year, month, day, hour, min, text = re.findall("\[(\d+)-(\d+)-(\d+) (\d+):(\d+)\] (.*)", line)[0]
+    year, month, day, hour, min, text = re.findall(r"\[(\d+)-(\d+)-(\d+) (\d+):(\d+)\] (.*)", line)[0]
     logs.append((tuple(map(int, (year, month, day, hour, min))), text))
 
 stats = {}
 for log in sorted(logs):
     minutes, text = log[0][-1], log[1]
     if text.startswith("Guard"):
-        guard = int(re.findall("#(\d+)", text)[0])
+        guard = int(re.findall(r"#(\d+)", text)[0])
         guard_stat = stats.setdefault(guard, [0, Counter()])
     elif text == "falls asleep":
         sleep_time = minutes

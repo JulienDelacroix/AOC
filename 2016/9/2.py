@@ -16,7 +16,7 @@ def uncompress(compressed):
             i += 1
         i += 1
         
-        seq, times = map(int, re.findall("(\d+)x(\d+)", "".join(instruction))[0])
+        seq, times = map(int, re.findall(r"(\d+)x(\d+)", "".join(instruction))[0])
         result += times * uncompress(compressed[i:i+seq])
         i += seq
     return result

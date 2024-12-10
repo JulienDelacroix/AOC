@@ -5,7 +5,7 @@ lights = []
 speeds = []
 
 for line in sys.stdin.read().splitlines():
-    x, y, dx, dy = map(int, re.findall("(-?\d+)", line))
+    x, y, dx, dy = map(int, re.findall(r"(-?\d+)", line))
     lights.append([x, y])
     speeds.append([dx, dy])
 

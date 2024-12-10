@@ -8,7 +8,7 @@ for line in points_lines.splitlines():
 
 for line in fold_lines.splitlines():
     new_points = set()
-    axis, pos = re.findall("fold along ([xy])=(\d+)", line)[0]
+    axis, pos = re.findall(r"fold along ([xy])=(\d+)", line)[0]
     if axis=="x":
         x = int(pos)
         for p in points:

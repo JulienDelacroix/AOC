@@ -23,7 +23,7 @@ def awayfrom(sensor):
 sensors = []
 beacons = set()
 for line in sys.stdin.read().splitlines():
-    x1, y1, x2, y2 = map(int, re.findall("-?\d+", line))
+    x1, y1, x2, y2 = map(int, re.findall(r"-?\d+", line))
     sensor, beacon = (x1, y1), (x2, y2)
     sensors.append((sensor, dist(sensor, beacon)))
     beacons.add(beacon)

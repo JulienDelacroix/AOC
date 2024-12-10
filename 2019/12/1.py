@@ -3,7 +3,7 @@ import re
 
 moons = []
 for line in sys.stdin.read().splitlines():
-    moons.append(list(map(int, re.findall("(-?\d+)", line))) + [0]*3)
+    moons.append(list(map(int, re.findall(r"(-?\d+)", line))) + [0]*3)
 
 for _ in range(1000):
     for m1 in moons:

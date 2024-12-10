@@ -1,7 +1,7 @@
 import re
 from collections import deque
 
-P, M = map(int, re.findall("(\d+)", input()))
+P, M = map(int, re.findall(r"(\d+)", input()))
 
 scores = [0] * P
 p = 0

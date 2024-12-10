@@ -3,7 +3,7 @@ import re
 
 constraints = []
 for line in sys.stdin.read().splitlines():
-    disc, size, pos = map(int, re.findall("Disc #(\d+) has (\d+) positions; at time=0, it is at position (\d+).", line)[0])
+    disc, size, pos = map(int, re.findall(r"Disc #(\d+) has (\d+) positions; at time=0, it is at position (\d+).", line)[0])
     constraints.append((size, (size -(disc + pos)) % size))
 constraints.append((11, (11 -(len(constraints)+1)) % 11))
 

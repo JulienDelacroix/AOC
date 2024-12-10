@@ -8,7 +8,7 @@ def erosion(x, y):
     if x == 0: return ((y * 48271) + depth) % 20183
     return ((erosion(x-1, y) * erosion(x, y-1)) + depth ) % 20183
 
-depth = int(re.findall("(\d+)", input())[0])
-target_x, target_y = tuple(map(int, re.findall("(\d+)", input())))
+depth = int(re.findall(r"(\d+)", input())[0])
+target_x, target_y = tuple(map(int, re.findall(r"(\d+)", input())))
 
 print(sum(erosion(x, y) % 3 for x in range(0, target_x+1) for y in range(0, target_y+1)))

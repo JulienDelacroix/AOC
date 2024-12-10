@@ -12,7 +12,7 @@ def transform(a):
 
 rules = {}
 for line in sys.stdin.read().splitlines():
-    pattern_str, enhanced_str = re.findall("(.+) => (.+)", line)[0]
+    pattern_str, enhanced_str = re.findall(r"(.+) => (.+)", line)[0]
     pattern = np.array([ [(1 if c == '#' else 0) for c in row] for row in pattern_str.split("/") ])
     enhanced = np.array([ [(1 if c == '#' else 0) for c in row] for row in enhanced_str.split("/") ])
     for p in transform(pattern):

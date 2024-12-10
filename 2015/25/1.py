@@ -1,7 +1,7 @@
 import sys
 import re
 
-target_row, target_col = map(int, re.findall("(\d+)", sys.stdin.read().splitlines()[0]))
+target_row, target_col = map(int, re.findall(r"(\d+)", sys.stdin.read().splitlines()[0]))
 
 row = col = index = 1
 while row != target_row:

@@ -8,14 +8,14 @@ rules = {}
 q = Queue()
 for line in sys.stdin.read().splitlines():
     if line.startswith("value"):
-        v, bot = re.findall("value (\d+) goes to (.*)", line)[0]
+        v, bot = re.findall(r"value (\d+) goes to (.*)", line)[0]
         if bot in values:
             values[bot].append(int(v))
             q.put(bot)
         else:
             values.update({ bot : [int(v)] })
     else:
-        source, low, high = re.findall("(.*) gives low to (.*) and high to (.*)", line)[0]
+        source, low, high = re.findall(r"(.*) gives low to (.*) and high to (.*)", line)[0]
         rules.update({ source : (low, high) })
 
 while not q.empty():

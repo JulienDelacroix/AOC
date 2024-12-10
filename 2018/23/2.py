@@ -20,7 +20,7 @@ def split(box):
    
 bots = []
 for line in sys.stdin.read().splitlines():
-    x, y, z, r = map(int, re.findall("(-?\d+)", line))
+    x, y, z, r = map(int, re.findall(r"(-?\d+)", line))
     bots.append((x, y, z, r))
 
 bigbox = (tuple(min(b[i] for b in bots) for i in range(3)), tuple(max(b[i] for b in bots) for i in range(3)))

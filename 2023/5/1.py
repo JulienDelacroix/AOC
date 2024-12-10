@@ -2,7 +2,7 @@ import sys
 import re
 
 blocks = list(sys.stdin.read().split("\n\n"))
-items = set(map(int, re.findall("(\d+)", blocks[0].splitlines()[0])))
+items = set(map(int, re.findall(r"(\d+)", blocks[0].splitlines()[0])))
 
 for block in blocks:
     next_items = set()

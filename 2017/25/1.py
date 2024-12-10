@@ -1,8 +1,8 @@
 import sys
 import re
 
-state = re.findall("Begin in state (\w).", sys.stdin.readline())[0]
-steps = int(re.findall("Perform a diagnostic checksum after (\d+) steps.", sys.stdin.readline())[0])
+state = re.findall(r"Begin in state (\w).", sys.stdin.readline())[0]
+steps = int(re.findall(r"Perform a diagnostic checksum after (\d+) steps.", sys.stdin.readline())[0])
 
 input = "".join(sys.stdin.readlines())
 pattern = """\

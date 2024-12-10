@@ -1,8 +1,8 @@
 import sys
 import re
 
-times = map(int, re.findall("(\d+)", sys.stdin.readline()))
-distances = map(int, re.findall("(\d+)", sys.stdin.readline()))
+times = map(int, re.findall(r"(\d+)", sys.stdin.readline()))
+distances = map(int, re.findall(r"(\d+)", sys.stdin.readline()))
 
 res = 1
 for t, d in zip(times, distances):

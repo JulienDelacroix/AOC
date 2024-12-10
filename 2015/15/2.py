@@ -3,7 +3,7 @@ import re
 
 ingredients = []
 for line in sys.stdin.read().splitlines():
-    ingredients.append(tuple(map(int, re.findall("(-?\d+)", line))))
+    ingredients.append(tuple(map(int, re.findall(r"(-?\d+)", line))))
 
 def dfs(capacity, durability, flavor, texture, calories, index, teaspoons):
     i = ingredients[index]

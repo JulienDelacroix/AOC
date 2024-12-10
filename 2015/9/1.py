@@ -12,7 +12,7 @@ def dfs(last, remaining):
 
 all_towns = set()
 for line in sys.stdin.read().splitlines():
-    source, dest, dist = re.findall("(.*) to (.*) = (\d+)", line)[0]
+    source, dest, dist = re.findall(r"(.*) to (.*) = (\d+)", line)[0]
     distances.update({(source, dest) : int(dist), (dest, source) : int(dist)})
     all_towns.add(source)
     all_towns.add(dest)

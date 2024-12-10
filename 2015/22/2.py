@@ -1,7 +1,7 @@
 import sys
 import re
 
-boss_inital_hp, boss_damage = map(int, (re.findall("\d+", line)[0] for line in sys.stdin.read().splitlines()))
+boss_inital_hp, boss_damage = map(int, (re.findall(r"\d+", line)[0] for line in sys.stdin.read().splitlines()))
 min_mana = 100000
 
 def dfs(turn, player_hp, shield_timer, poison_timer, recharge_timer, mana, spent_mana, boss_hp):
